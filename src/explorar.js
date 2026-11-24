@@ -1,16 +1,40 @@
 
+
 const { ventas } = require("./datos");
+const {
+    totalVendido,
+    totalUnidades,
+    ventaMayorValor,
+    ventasDeCiudad,
+    promedioPorVenta
+} = require("./analitica");
 
-console.log("cantidad de registros:", ventas.length);
+console.log("total vendido:");
+console.log(totalVendido(ventas));
 
-console.log("primer registro:");
-console.log(ventas[0]);
+console.log("unidades vendidas:");
+console.log(totalUnidades(ventas));
 
-console.log("ultimo registro:");
-console.log(ventas[ventas.length - 1]);
+console.log("venta mayor:");
+console.log(ventaMayorValor(ventas));
 
-console.log("producto de la posicion 4:");
-console.log(ventas[4].producto);
+console.log("ventas de medellin:");
+console.table(ventasDeCiudad(ventas, "Medellín"));
 
-console.log("tabla completa:");
-console.table(ventas);
+console.log("promedio por venta:");
+console.log(promedioPorVenta(ventas));
+
+console.log("pruebas con una venta:");
+console.log(totalVendido([ventas[0]]));
+console.log(totalUnidades([ventas[0]]));
+console.log(ventaMayorValor([ventas[0]]));
+console.log(promedioPorVenta([ventas[0]]));
+
+console.log("pruebas con arreglo vacio:");
+console.log(totalVendido([]));
+console.log(totalUnidades([]));
+console.log(ventaMayorValor([]));
+console.log(ventasDeCiudad([], "Medellín"));
+console.log(promedioPorVenta([]));
+
+
