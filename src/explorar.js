@@ -37,4 +37,25 @@ console.log(ventaMayorValor([]));
 console.log(ventasDeCiudad([], "Medellín"));
 console.log(promedioPorVenta([]));
 
+const {
+    ventasValidas,
+    resumenVentas,
+    totalPorCiudad,
+    unidadesPorProducto,
+    topProductosPorValor
+} = require("./analitica");
 
+console.log("ventas validas:");
+console.table(ventasValidas(ventas));
+
+console.log("resumen de ventas:");
+console.table(resumenVentas(ventas));
+
+console.log("total por ciudad:");
+console.log(totalPorCiudad(ventas));
+
+console.log("unidades por producto:");
+console.log(unidadesPorProducto(ventas));
+
+console.log("top 3 productos:");
+console.log(topProductosPorValor(ventas, 3));

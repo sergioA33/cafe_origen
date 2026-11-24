@@ -74,11 +74,78 @@ function promedioPorVenta(ventas) {
     return total / contador;
 }
 
+function ventasValidas(ventas) {
+    return ventas.filter(venta => venta.cantidad > 0);
+}
+function resumenVentas(ventas) {
+    let validas = ventasValidas(ventas);
+
+    return validas.map(venta => ({
+        id: venta.id,
+        producto: venta.producto,
+        ciudad: venta.ciudad.trim().toLowerCase(),
+        total: venta.cantidad * venta.precio
+    }));
+}
+function totalPorCiudad(ventas) {
+    return ventasValidas(ventas).reduce((totales, venta) => {
+        let ciudad = venta.ciudad.trim().toLowerCase();
+
+        if (totales[ciudad] === undefined) {
+            totales[ciudad] = 0;
+        }
+
+        totales[ciudad] += venta.cantidad * venta.precio;
+
+        return totales;
+    }, {});
+}
+
+function unidadesPorProducto(ventas) {
+    return ventasValidas(ventas).reduce((unidades, venta) => {
+        let producto = venta.producto;
+
+        if (unidades[producto] === undefined) {
+            unidades[producto] = 0;
+        }
+
+        unidades[producto] += venta.cantidad;
+
+        return unidades;
+    }, {});
+}
+
+function topProductosPorValor(ventas, k) {
+    let totales = ventasValidas(ventas).reduce((resultado, venta) => {
+        let producto = venta.producto;
+
+        if (resultado[producto] === undefined) {
+            resultado[producto] = 0;
+        }
+
+        resultado[producto] += venta.cantidad * venta.precio;
+
+        return resultado;
+    }, {});
+
+    let productos = [...Object.entries(totales)];
+
+    productos.sort((a, b) => b[1] - a[1]);
+
+    return productos.slice(0, k).map(producto => producto[0]);
+}
+
+
 module.exports = {
     valorVenta,
     totalVendido,
     totalUnidades,
     ventaMayorValor,
     ventasDeCiudad,
-    promedioPorVenta
+    promedioPorVenta,
+    ventasValidas,
+    resumenVentas,
+    totalPorCiudad,
+    unidadesPorProducto,
+    topProductosPorValor
 };

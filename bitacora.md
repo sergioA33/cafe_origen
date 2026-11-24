@@ -70,3 +70,14 @@ promedio por venta:
 
 --------mini reto 3----
 
+en este mini reto trabaje con cinco funciones nuevas para organizar y analizar las ventas de cafe Origen ,primero hice la funcion ventasValidas, que revisa las ventas y deja solamente las que tienen una cantidad mayor que cero. Después hice resumenVentas, que toma esas ventas y muestra informacion mas corta con el id, el producto, la ciudad y el total de cada venta.
+luego trabaje con totalPorCiudad, que agrupa las ventas por ciudad y suma el dinero que se vendio en cada una. tambien hice unidadesPorProducto, que permite saber cuántas unidades se vendieron de cada producto.
+Por ultimo, hice topProductosPorValor, que organiza los productos segun el dinero que generaron y muestra los tres que tuvieron mayores ventas.
+
+
+--------mini reto 4-------
+
+
+
+
+
