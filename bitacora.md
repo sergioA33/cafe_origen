@@ -76,8 +76,11 @@ Por ultimo, hice topProductosPorValor, que organiza los productos segun el diner
 
 
 --------mini reto 4-------
+En este minirreto cree el archivo reporte.js para ejecutar las funciones de los retos anteriores y mostrar los resultados de las ventas.
 
+Al ejecutar el reporte no aparecieron errores y pude revisar las ventas validas, el resumen, los totales por ciudad, las unidades por producto y los tres productos que mas dinero generaron.
 
+Tambien comprobe que el arreglo original conservara sus 12 ventas.
 
 
 
